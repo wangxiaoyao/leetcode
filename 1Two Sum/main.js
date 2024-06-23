@@ -1,4 +1,10 @@
-// 方法1
+// 1 双循环算法
+/**
+ * 
+ * @param {number[]} nums 
+ * @param {number} target 
+ * @return {number[]}
+ */
 var twoSum = function (nums, target) {
   for (let i = 0; i < nums.length; i++) {
     for (let j = i + 1; j < nums.length; j++) {
@@ -10,17 +16,27 @@ var twoSum = function (nums, target) {
   return [];
 };
 
-// 方法2
+// 2哈希表算法
+/**
+ * @param {[]} arr
+ * @return {Map}
+ */
+
+let arrToMap = (arr) => new Map(arr.map((val, key) => [val, key]));
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
 var twoSum = function (nums, target) {
-  let maps = new Map();
+  let resultMap = arrToMap(nums);
   for (let i = 0; i < nums.length; i++) {
-    maps.set(nums[i], i);
-  }
-  for (let i = 0; i < nums.length; i++) {
-    let left = target - nums[i];
-    if (maps.get(left) != i && maps.has(left)) {
-      return [maps.get(left), i];
+    let leftVal = target - nums[i];
+    if (resultMap.get(leftVal) != i && resultMap.has(leftVal)) {
+      return [resultMap.get(leftVal), i]
     }
   }
-  return [];
-};
+  return []
+}
