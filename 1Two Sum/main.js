@@ -1,11 +1,11 @@
-// 1 双循环算法
+// 1:Bruteforce.
 /**
  * 
  * @param {number[]} nums 
  * @param {number} target 
  * @return {number[]}
  */
-var twoSum = function (nums, target) {
+var twoSumFun1 = function (nums, target) {
   for (let i = 0; i < nums.length; i++) {
     for (let j = i + 1; j < nums.length; j++) {
       if (nums[i] + nums[j] == target) {
@@ -16,7 +16,7 @@ var twoSum = function (nums, target) {
   return [];
 };
 
-// 2哈希表算法
+// 2:hashTable
 /**
  * @param {[]} arr
  * @return {Map}
@@ -30,7 +30,7 @@ let arrToMap = (arr) => new Map(arr.map((val, key) => [val, key]));
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function (nums, target) {
+var twoSumFun2 = function (nums, target) {
   let resultMap = arrToMap(nums);
   for (let i = 0; i < nums.length; i++) {
     let leftVal = target - nums[i];
